@@ -1,5 +1,4 @@
 import React, { FC, HTMLAttributes, ReactNode } from "react";
-import { Annoncement } from "@prisma/client";
 import NoData from "@/components/NoData";
 import { cn } from "@/lib/utils";
 
