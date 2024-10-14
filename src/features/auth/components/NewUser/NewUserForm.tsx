@@ -22,10 +22,6 @@ import {
 import { ErrorMessage } from "@/components/ui/ErrorMessage";
 import { useNewUser } from "../../hooks/useNewUser";
 import { Role } from "@prisma/client";
-import {
-  createUserSchema,
-  roleEnum,
-} from "../../validation/userSettingsSchema";
 
 interface Props {
   onClose?: () => void;

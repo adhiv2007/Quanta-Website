@@ -4,7 +4,18 @@ export const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
 export const passwordRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
 
-export const roleEnum = z.enum(["STUDENT", "TEACHER", "STAFF", "ADMIN"]);
+export const roleEnum = z.enum([
+  "STUDENT",
+  "TEACHER",
+  "MENTOR",
+  "RESEARCHER",
+  "COORDINATOR",
+  "ADMIN",
+  "STAFF",
+  "PARTNER",
+  "VOLUNTEER",
+  "ALUMNI",
+]);
 export type roleEnum = z.infer<typeof roleEnum>;
 
 export const usernameChangeSchema = z.object({
