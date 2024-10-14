@@ -14,11 +14,12 @@ const HeroSection = () => {
               Unlocking the Power of Research
             </h2>
             <p className="mt-4 text-primary/80">
-              Whether you're an aspiring researcher or a seasoned professional,
-              our community is here to support your journey. Through our
-              structured research programs and open support initiatives, we aim
-              to cultivate innovation, foster collaboration, and bridge the gap
-              between theoretical knowledge and practical solutions.
+              Whether you&apos;re an aspiring researcher or a seasoned
+              professional, our community is here to support your journey.
+              Through our structured research programs and open support
+              initiatives, we aim to cultivate innovation, foster collaboration,
+              and bridge the gap between theoretical knowledge and practical
+              solutions.
             </p>
           </div>
           <div>

@@ -41,16 +41,13 @@ const LineSection: FC<Props> = ({
   return (
     <section
       {...props}
-      className={cn(
-        `flex flex-row gap-8 lg:flex-row lg:space-x-8`,
-        props.className
-      )}
+      className={cn(`flex flex-row gap-8 lg:space-x-8`, props.className)}
     >
       <div className="z-10 flex items-center justify-center w-10 h-10 p-3 rounded-full bg-purple-800">
         <Icon size={48} className="text-white" />
       </div>
 
-      <div className="flex flex-col gap-8 lg:flex-row lg:space-x-8">
+      <div className="flex flex-col gap-8 md:flex-row lg:space-x-8">
         {reverse && <LineSectionImageContainer image={image} />}
         <motion.div
           ref={ref}
