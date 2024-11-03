@@ -4,7 +4,7 @@ import {
   CheckmarkIcon,
   CircleIcon,
   DocumentTextIcon,
-  DotIcon,
+  DocumentsIcon,
   SparklesIcon,
   TextIcon,
 } from "@sanity/icons";
@@ -152,6 +152,31 @@ export const formType = defineType({
           fields: [
             { name: "question", type: "string", title: "Question" },
             { name: "includeTime", type: "boolean", title: "Include Time" },
+          ],
+        }),
+
+        defineArrayMember({
+          type: "object",
+          name: "fileUploadQuestion",
+          title: "File Upload Question",
+          // @ts-ignore
+          icon: DocumentsIcon,
+          fields: [
+            { name: "question", type: "string", title: "Question" },
+            {
+              name: "maxFilesCount",
+              type: "number",
+              title: "Max Files Count",
+              description: "Maximum files count allowed for upload",
+              validation: (Rule) => Rule.positive().integer().max(50),
+            },
+            {
+              name: "maxFileSize",
+              type: "number",
+              title: "Max File Size (MB)",
+              description: "Maximum file size allowed for upload",
+              validation: (Rule) => Rule.positive().integer().max(50),
+            },
           ],
         }),
       ],
