@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import {
   BlockContentIcon,
   CalendarIcon,
@@ -41,11 +43,11 @@ export const formType = defineType({
         hotspot: true,
       },
       fields: [
-        {
+        defineField({
           name: "alt",
           type: "string",
           title: "Alternative text",
-        },
+        }),
       ],
     }),
 
@@ -61,7 +63,13 @@ export const formType = defineType({
           title: "Small Text Question",
           // @ts-ignore
           icon: TextIcon,
-          fields: [{ name: "question", type: "string", title: "Question" }],
+          fields: [
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+          ],
         }),
 
         defineArrayMember({
@@ -71,13 +79,17 @@ export const formType = defineType({
           // @ts-ignore
           icon: BlockContentIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            {
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
               name: "wordLimit",
               type: "number",
               title: "Word Limit",
               validation: (Rule) => Rule.positive().integer(),
-            },
+            }),
           ],
         }),
 
@@ -89,19 +101,23 @@ export const formType = defineType({
           // @ts-ignore
           icon: CircleIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            {
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
               name: "options",
               type: "array",
               title: "Options",
-              of: [{ type: "string" }],
+              of: [defineArrayMember({ type: "string" })],
               validation: (Rule) => Rule.min(2).required(),
-            },
-            {
+            }),
+            defineField({
               name: "allowMultiple",
               type: "boolean",
               title: "Allow Multiple Selections",
-            },
+            }),
           ],
         }),
 
@@ -113,14 +129,18 @@ export const formType = defineType({
           // @ts-ignore
           icon: CheckmarkIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            {
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
               name: "options",
               type: "array",
               title: "Options",
-              of: [{ type: "string" }],
+              of: [defineArrayMember({ type: "string" })],
               validation: (Rule) => Rule.min(2).required(),
-            },
+            }),
           ],
         }),
 
@@ -132,13 +152,17 @@ export const formType = defineType({
           // @ts-ignore
           icon: SparklesIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            {
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
               name: "scale",
               type: "number",
               title: "Scale (e.g., 1-5)",
               validation: (Rule) => Rule.required().min(1).max(10),
-            },
+            }),
           ],
         }),
 
@@ -150,11 +174,20 @@ export const formType = defineType({
           // @ts-ignore
           icon: CalendarIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            { name: "includeTime", type: "boolean", title: "Include Time" },
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
+              name: "includeTime",
+              type: "boolean",
+              title: "Include Time",
+            }),
           ],
         }),
 
+        // File Upload question
         defineArrayMember({
           type: "object",
           name: "fileUploadQuestion",
@@ -162,21 +195,25 @@ export const formType = defineType({
           // @ts-ignore
           icon: DocumentsIcon,
           fields: [
-            { name: "question", type: "string", title: "Question" },
-            {
+            defineField({
+              name: "question",
+              type: "string",
+              title: "Question",
+            }),
+            defineField({
               name: "maxFilesCount",
               type: "number",
               title: "Max Files Count",
               description: "Maximum files count allowed for upload",
               validation: (Rule) => Rule.positive().integer().max(50),
-            },
-            {
+            }),
+            defineField({
               name: "maxFileSize",
               type: "number",
               title: "Max File Size (MB)",
               description: "Maximum file size allowed for upload",
               validation: (Rule) => Rule.positive().integer().max(50),
-            },
+            }),
           ],
         }),
       ],

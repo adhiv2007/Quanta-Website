@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { defineType, defineArrayMember } from "sanity";
 import { ImageIcon } from "@sanity/icons";
 

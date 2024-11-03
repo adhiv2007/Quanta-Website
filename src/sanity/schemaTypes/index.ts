@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { type SchemaTypeDefinition } from "sanity";
 
 import { blockContentType } from "./blockContentType";

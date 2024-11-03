@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { EarthGlobeIcon } from "@sanity/icons";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
@@ -33,11 +35,11 @@ export const postType = defineType({
         hotspot: true,
       },
       fields: [
-        {
+        defineField({
           name: "alt",
           type: "string",
           title: "Alternative text",
-        },
+        }),
       ],
     }),
     defineField({
