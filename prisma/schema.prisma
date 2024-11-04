@@ -17,10 +17,7 @@ model User {
   lastPasswordChange DateTime?
   role      Role     @default(STUDENT)
   createdAt DateTime @default(now())
-  posts     BlogPost[] @relation("userBlogPosts")
-  events     Event[] @relation("userEvents")
   attachments  Attachment[] @relation("userAttachments")
-  publications  Publication[] @relation("userPublications")
 }
 
 model Attachment {
@@ -32,57 +29,7 @@ model Attachment {
   updatedAt DateTime @updatedAt
 }
 
-model BlogPost {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime? @updatedAt
-  published Boolean  @default(false)
-  title     String
-  content   String
-  imageURL  String?
-  author    User?    @relation("userBlogPosts", fields: [authorId], references: [id])
-  authorId  String   @db.ObjectId
-}
 
-model Event {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  published Boolean  @default(false)
-  title     String
-  content   String
-  imageURL  String?
-  registerLink  String
-  location  String
-  date      DateTime 
-  author    User?    @relation("userEvents", fields: [authorId], references: [id])
-  authorId  String   @db.ObjectId
-}
-
-model Activity {
-  id          String         @id @default(auto()) @map("_id") @db.ObjectId
-  type        ActivityType   @default(COMPETITION)
-  name        String
-  description String?
-  date        DateTime?
-  teams       Team[]         @relation("activityTeams")
-  photos      String[]
-
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-}
-
-
-model Team {
-  id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  name       String?
-  activityId String       @db.ObjectId
-  activity   Activity  @relation("activityTeams", fields: [activityId], references: [id])
-  members    String[]
-
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-}
 
 model Message {
     id        String   @id @default(auto()) @map("_id") @db.ObjectId
@@ -103,17 +50,6 @@ model NewsLetter {
     subscribedAt DateTime @default(now())
 }
 
-
-model Publication {
-    id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  type        PublicationType
-  status      Status       
-  author    User?    @relation("userPublications", fields: [authorId], references: [id])
-  authorId  String   @db.ObjectId
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-}
 
 
 enum PublicationType {

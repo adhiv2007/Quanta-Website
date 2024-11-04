@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="container grid grid-rows-2 items-center gap-8 lg:grid-rows-none lg:grid-cols-2">
         <div className="space-y-8">
           <div className="space-y-2">
-            <h3 className="text-purple-300 text-sm uppercase">
+            <h3 className="text-purple-300 text-sm uppercase font-bold">
               unlocking the power of research
             </h3>
             <h2 className="text-5xl font-bold text-primary">
